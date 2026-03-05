@@ -2,36 +2,30 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 
-public class EnableHouseUnlock : MonoBehaviour
+public class EnableCropClicker : MonoBehaviour
 {
-    public InputActionReference unlockAction;
+    public InputActionReference clickAction;
     public GameObject blinkingText;
-    public GameObject textCanvas;
-    public GameObject houseObject;
     public float blinkInterval = 0.5f;
+
     private bool isPlayerInside = false;
     private Coroutine blinkingCoroutine;
 
-    private void OnEnable()
+    void OnEnable()
     {
-        unlockAction.action.Enable();
-        unlockAction.action.performed += onUnlockHouse;
+        clickAction.action.Enable();
+        clickAction.action.performed += onClickCrop;
     }
-
-    private void OnDisable()
+    void OnDisable()
     {
-        unlockAction.action.performed -= onUnlockHouse;
-        unlockAction.action.Disable();
+        clickAction.action.performed -= onClickCrop;
+        clickAction.action.Disable();
     }
-
-    private void onUnlockHouse(InputAction.CallbackContext context)
+    private void onClickCrop(InputAction.CallbackContext context)
     {
-        if (isPlayerInside && ResourceManager.Instance.SpendCrops(20))
+        if (isPlayerInside)
         {
-            houseObject.SetActive(true);
-            textCanvas.SetActive(false);
-            this.gameObject.SetActive(false);
-            ResourceManager.Instance.IncreaseCropGrowthRate(1);
+            ResourceManager.Instance.IncreaseCropCount(1);
         }
     }
 
@@ -43,7 +37,6 @@ public class EnableHouseUnlock : MonoBehaviour
             blinkingCoroutine = StartCoroutine(BlinkText());
         }
     }
-
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -57,7 +50,6 @@ public class EnableHouseUnlock : MonoBehaviour
             blinkingText.SetActive(false);
         }
     }
-
     private IEnumerator BlinkText()
     {
         while (isPlayerInside)
