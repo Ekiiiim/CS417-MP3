@@ -1505,6 +1505,9 @@ MonoBehaviour:
   electricityCount: 0
   electricityGrowthRate: 0
   happiness: 1
+  cropMultiplier: 1
+  electricityMultiplier: 1
+  electricityUnlocked: 0
 --- !u!114 &511876078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6342,6 +6345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5726121173939719775}
+  - component: {fileID: 5726121173939719776}
   m_Layer: 0
   m_Name: UnlockableHouse
   m_TagString: Untagged
@@ -6639,6 +6643,23 @@ Transform:
   - {fileID: 747726371}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5726121173939719776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3823920803834258606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cccdedd88cb675b4e91eabb5b05d12ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HouseGenerator
+  baseCropRate: 1
+  cropRatePerUpgrade: 1
+  level: 0
+  maxLevel: 10
+  levelText: {fileID: 0}
 --- !u!224 &5864316727193424470
 RectTransform:
   m_ObjectHideFlags: 0
