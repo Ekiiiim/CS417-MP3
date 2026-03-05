@@ -35,6 +35,11 @@ public class ResourceManager : MonoBehaviour
         cropCount += amount;
     }
 
+    public void IncreaseHappiness(float amount)
+    {
+        happiness += amount;
+    }
+
     public void IncreaseCropGrowthRate(int amount)
     {
         cropGrowthRate += amount;
