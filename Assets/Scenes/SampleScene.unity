@@ -3676,6 +3676,7 @@ GameObject:
   - component: {fileID: 511876076}
   - component: {fileID: 511876077}
   - component: {fileID: 511876078}
+  - component: {fileID: 511876079}
   m_Layer: 0
   m_Name: GlobalManagers
   m_TagString: Untagged
@@ -3716,6 +3717,8 @@ MonoBehaviour:
   electricityGrowthRate: 0
   happiness: 1
   houseUpkeepPerSecond: 0
+  powerUpMultiplier: 0
+  powerUpDuration: 0
 --- !u!114 &511876078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3729,6 +3732,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   inputActions: {fileID: -944628639613478452, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
+--- !u!114 &511876079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511876075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2529405d5171abd4c81326c3b057bbb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUpSpawner
+  powerUpPrefab: {fileID: 61144650155883939, guid: 1e14dcd97bcf3c044a339bfc1978beab, type: 3}
+  spawnBoundaryMax: {x: 7, y: -1}
+  spawnBoundMin: {x: -7, y: -89}
+  cropMultiplier: 0
+  minTime: 0
+  maxTime: 1
 --- !u!1001 &516092315
 PrefabInstance:
   m_ObjectHideFlags: 0

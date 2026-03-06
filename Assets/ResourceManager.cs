@@ -18,16 +18,32 @@ public class ResourceManager : MonoBehaviour
     [Header("Upkeep (Houses consume food)")]
     public float houseUpkeepPerSecond = 0f;
 
+    [Header("Power Up")]
+    public float powerUpMultiplier;
+    public float powerUpDuration;
+
+    private float powerUpTimer = 0f;
     private float timer = 0f;
+    private float curPowerUpMulti = 1f;
 
     private void Awake() => Instance = this;
 
     void Update()
     {
         timer += Time.deltaTime;
+        powerUpTimer -= Time.deltaTime;
+        if (powerUpTimer > 0f)
+        {
+            curPowerUpMulti = powerUpMultiplier;
+        } 
+        else
+        {
+            curPowerUpMulti = 1f;
+        }
+
         if (timer >= 1f)
         {
-            cropCount += cropGrowthRate * happiness - houseUpkeepPerSecond;
+            cropCount += curPowerUpMulti * cropGrowthRate * happiness - houseUpkeepPerSecond;
             if (cropCount < 0) cropCount = 0;
 
             electricityCount += Mathf.FloorToInt(electricityGrowthRate * happiness);
@@ -84,5 +100,10 @@ public class ResourceManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void ActivatePowerUp(GameObject gameObject)
+    {
+        powerUpTimer = powerUpDuration;
     }
 }
