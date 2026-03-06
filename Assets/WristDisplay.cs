@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using System;
 
 public class WristDisplay : MonoBehaviour
 {
@@ -41,14 +42,19 @@ public class WristDisplay : MonoBehaviour
         float cropCount = ResourceManager.Instance.cropCount;
         float cropGrowthRate = ResourceManager.Instance.cropGrowthRate;
         float totalUpkeep = ResourceManager.Instance.houseUpkeepPerSecond;
+        float cropBonusMulti = ResourceManager.Instance.curPowerUpMulti;
 
-        string infoString = $"Crops: {cropCount:N0}   (+{cropGrowthRate - totalUpkeep:F2}/sec)\n";
+        string infoString = $"Crops: {cropCount:N0}   (+{cropBonusMulti*(cropGrowthRate - totalUpkeep):F2}/sec)\n";
         if (!CityWall.activeSelf)
         {
             float electricityCount = ResourceManager.Instance.electricityCount;
             float electricityGrowthRate = ResourceManager.Instance.electricityGrowthRate;
             infoString += $"Electricity: {electricityCount:N0}   (+{electricityGrowthRate:F2}/sec)\n";
             infoString += $"\nHappiness: x{ResourceManager.Instance.happiness:F2}";
+        }
+        if (ResourceManager.Instance.powerUpTimer > 0f)
+        {
+            infoString += $"\n!!!CROP GROWTH BONUS!!! (ends in {Math.Ceiling(ResourceManager.Instance.powerUpTimer)})";
         }
         InfoText.text = infoString;
     }
