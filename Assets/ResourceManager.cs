@@ -5,25 +5,18 @@ public class ResourceManager : MonoBehaviour
     public static ResourceManager Instance;
 
     [Header("Crops")]
-    public int cropCount = 0;
-    public int cropGrowthRate = 0;
+    public float cropCount = 0f;
+    public float cropGrowthRate = 0f;
 
     [Header("Electricity")]
-    public int electricityCount = 0;
-    public int electricityGrowthRate = 0;
+    public float electricityCount = 0f;
+    public float electricityGrowthRate = 0f;
 
     [Header("Happiness")]
     public float happiness = 1f;
 
-    [Header("Multipliers (Power-ups)")]
-    public float cropMultiplier = 1f;
-    public float electricityMultiplier = 1f;
-
-    [Header("Unlocks")]
-    public bool electricityUnlocked = false;
-
     [Header("Upkeep (Houses consume food)")]
-    public int houseUpkeepPerSecond = 0;
+    public float houseUpkeepPerSecond = 0f;
 
     private float timer = 0f;
 
@@ -34,37 +27,26 @@ public class ResourceManager : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= 1f)
         {
-            //cropCount += Mathf.FloorToInt(cropGrowthRate * happiness);
-            //electricityCount += Mathf.FloorToInt(electricityGrowthRate * happiness);
-            // After producing crops:
-            cropCount += Mathf.FloorToInt(cropGrowthRate * cropMultiplier * happiness);
-
-            // Houses consume crops over time:
-            int upkeepCost = Mathf.FloorToInt(houseUpkeepPerSecond * happiness);
-            cropCount -= upkeepCost;
-
-            // Don’t go negative:
+            cropCount += cropGrowthRate * happiness - houseUpkeepPerSecond;
             if (cropCount < 0) cropCount = 0;
 
-            if (electricityUnlocked)
-            {
-                electricityCount += Mathf.FloorToInt(electricityGrowthRate * electricityMultiplier * happiness);
-            }
-            timer -= 1f;
+            electricityCount += Mathf.FloorToInt(electricityGrowthRate * happiness);
             
+            timer -= 1f;
         }
     }
-    public void AddHouseUpkeep(int amountPerSecond)
+    public void IncreaseHouseUpkeep(float amountPerSecond)
     {
         houseUpkeepPerSecond += amountPerSecond;
     }
 
-    public void RemoveHouseUpkeep(int amountPerSecond)
+    public void RemoveHouseUpkeep(float amountPerSecond)
     {
         houseUpkeepPerSecond -= amountPerSecond;
         if (houseUpkeepPerSecond < 0) houseUpkeepPerSecond = 0;
     }
-    public void IncreaseCropCount(int amount)
+    
+    public void IncreaseCropCount(float amount)
     {
         cropCount += amount;
     }
@@ -74,17 +56,17 @@ public class ResourceManager : MonoBehaviour
         happiness += amount;
     }
 
-    public void IncreaseCropGrowthRate(int amount)
+    public void IncreaseCropGrowthRate(float amount)
     {
         cropGrowthRate += amount;
     }
 
-    public void IncreaseElectricityGrowthRate(int amount)
+    public void IncreaseElectricityGrowthRate(float amount)
     {
         electricityGrowthRate += amount;
     }
 
-    public bool SpendCrops(int amount)
+    public bool SpendCrops(float amount)
     {
         if (cropCount >= amount)
         {
@@ -93,21 +75,8 @@ public class ResourceManager : MonoBehaviour
         }
         return false;
     }
-    public void MultiplyCropMultiplier(float factor)
-    {
-        cropMultiplier *= factor;
-    }
 
-    public void MultiplyElectricityMultiplier(float factor)
-    {
-        electricityMultiplier *= factor;
-    }
-
-    public void UnlockElectricity()
-    {
-        electricityUnlocked = true;
-    }
-    public bool SpendElectricity(int amount)
+    public bool SpendElectricity(float amount)
     {
         if (electricityCount >= amount)
         {
