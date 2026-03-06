@@ -263,7 +263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5864282540933235337, guid: c754dcd1fe6a015409569af86c7c1863, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45.532658
+      value: -48.78
       objectReference: {fileID: 0}
     - target: {fileID: 5864282540933235337, guid: c754dcd1fe6a015409569af86c7c1863, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1716,8 +1716,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aca8a7b7587445e8d71a2e220648d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerAction
-  resource: 0
-  amount: 20
+  resource: 2
+  amount: 0
   action: {fileID: 1895664592}
   OnActionExecuted:
     m_PersistentCalls:
@@ -3155,7 +3155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.146
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5618,27 +5618,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 2076991235}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 1
       - m_Target: {fileID: 511876077}
         m_TargetAssemblyTypeName: ResourceManager, Assembly-CSharp
         m_MethodName: IncreaseElectricityGrowthRate
-        m_Mode: 3
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
-          m_FloatArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
+      - m_Target: {fileID: 1692448545}
+        m_TargetAssemblyTypeName: WristDisplay, Assembly-CSharp
+        m_MethodName: ShowCityTutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
@@ -6236,11 +6236,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a64fd7e1b8471046850beb2d86cf887, type: 3}
---- !u!1 &2076991235 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6645926596268288415, guid: 5a64fd7e1b8471046850beb2d86cf887, type: 3}
-  m_PrefabInstance: {fileID: 2076991234}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2085130421
 GameObject:
   m_ObjectHideFlags: 0
@@ -7029,6 +7024,18 @@ MonoBehaviour:
       - m_Target: {fileID: 747726372}
         m_TargetAssemblyTypeName: HouseManager, Assembly-CSharp
         m_MethodName: ActivateHouse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
+      - m_Target: {fileID: 1692448545}
+        m_TargetAssemblyTypeName: WristDisplay, Assembly-CSharp
+        m_MethodName: ShowHouseTutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

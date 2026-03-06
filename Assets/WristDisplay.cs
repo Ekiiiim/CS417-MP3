@@ -26,6 +26,9 @@ public class WristDisplay : MonoBehaviour
     {
         if (showTutorial) {
             showTutorial = false;
+            InfoText.fontSize = 16f;
+            TitleText.text = "Status Board";
+            HintText.text = "Press X to close/open";
         } else {
             gameObject.SetActive(!gameObject.activeSelf);
         }
@@ -34,7 +37,7 @@ public class WristDisplay : MonoBehaviour
     void Update()
     {
         if (showTutorial) return;
-        
+
         float cropCount = ResourceManager.Instance.cropCount;
         float cropGrowthRate = ResourceManager.Instance.cropGrowthRate;
         float totalUpkeep = ResourceManager.Instance.houseUpkeepPerSecond;
