@@ -104,7 +104,7 @@ public class HouseManager : MonoBehaviour
     private void UpdateUI()
     {
         if (levelText != null) {
-            levelText.text = $"House Lv {level}\n+{currentContribution - currentUpkeep:F2} crops/sec";
+            levelText.text = $"House Lv {level}\n+{currentContribution:F2} crops/sec\nUpkeep: {currentUpkeep:F2} crops/sec";
         }
         if (IsMaxLevel()) {
             if (upgradeTrigger != null) {
