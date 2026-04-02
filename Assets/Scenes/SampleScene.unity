@@ -846,6 +846,7 @@ GameObject:
   m_Component:
   - component: {fileID: 78944098}
   - component: {fileID: 78944099}
+  - component: {fileID: 78944100}
   m_Layer: 0
   m_Name: UpgradableHouse
   m_TagString: Untagged
@@ -898,6 +899,19 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 2098542832}
   levelText: {fileID: 1388827734}
   upgradeText: {fileID: 958110360}
+--- !u!114 &78944100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78944097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b838704dd36684d6e8666a2b94a7f65e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HouseEaseIn
+  easeSpeed: 8
 --- !u!1001 &87919898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6295,6 +6309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 747726371}
   - component: {fileID: 747726372}
+  - component: {fileID: 747726373}
   m_Layer: 0
   m_Name: UpgradableHouse
   m_TagString: Untagged
@@ -6347,6 +6362,19 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 739673548}
   levelText: {fileID: 1697601725}
   upgradeText: {fileID: 339174331}
+--- !u!114 &747726373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747726370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b838704dd36684d6e8666a2b94a7f65e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  easeSpeed: 8
 --- !u!4 &773190233 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1669781109300623314, guid: e41f2185f1c11a8409ff3cd219f789a1, type: 3}
@@ -9977,6 +10005,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 78944100}
+        m_TargetAssemblyTypeName: HouseEaseIn, Assembly-CSharp
+        m_MethodName: Unlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
   blinkingText: {fileID: 1353903551}
   blinkInterval: 0.5
   isOneTimeUse: 1
@@ -10923,6 +10963,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 2017405258}
+        m_TargetAssemblyTypeName: HouseEaseIn, Assembly-CSharp
+        m_MethodName: Unlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
   blinkingText: {fileID: 1976528758}
   blinkInterval: 0.5
   isOneTimeUse: 1
@@ -11068,7 +11120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -40.12
+      value: -17.704
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14707,6 +14759,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 1720956795}
+        m_TargetAssemblyTypeName: HouseEaseIn, Assembly-CSharp
+        m_MethodName: Unlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
   blinkingText: {fileID: 1930083209}
   blinkInterval: 0.5
   isOneTimeUse: 1
@@ -16288,6 +16352,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
+      - m_Target: {fileID: 2113486149}
+        m_TargetAssemblyTypeName: HouseEaseIn, Assembly-CSharp
+        m_MethodName: Unlock
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -23169,6 +23245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1720956793}
   - component: {fileID: 1720956794}
+  - component: {fileID: 1720956795}
   m_Layer: 0
   m_Name: UpgradableHouse
   m_TagString: Untagged
@@ -23221,6 +23298,19 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 2125296687}
   levelText: {fileID: 868022446}
   upgradeText: {fileID: 559474952}
+--- !u!114 &1720956795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720956792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b838704dd36684d6e8666a2b94a7f65e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HouseEaseIn
+  easeSpeed: 8
 --- !u!1 &1729947221
 GameObject:
   m_ObjectHideFlags: 0
@@ -25699,6 +25789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2017405256}
   - component: {fileID: 2017405257}
+  - component: {fileID: 2017405258}
   m_Layer: 0
   m_Name: UpgradableHouse
   m_TagString: Untagged
@@ -25751,6 +25842,19 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 1683825666}
   levelText: {fileID: 1604050368}
   upgradeText: {fileID: 1021703257}
+--- !u!114 &2017405258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017405255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b838704dd36684d6e8666a2b94a7f65e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HouseEaseIn
+  easeSpeed: 8
 --- !u!1 &2019866997
 GameObject:
   m_ObjectHideFlags: 0
@@ -26546,6 +26650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2113486147}
   - component: {fileID: 2113486148}
+  - component: {fileID: 2113486149}
   m_Layer: 0
   m_Name: UpgradableHouse
   m_TagString: Untagged
@@ -26598,6 +26703,19 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 1000677051}
   levelText: {fileID: 1425789879}
   upgradeText: {fileID: 1294460777}
+--- !u!114 &2113486149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113486146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b838704dd36684d6e8666a2b94a7f65e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HouseEaseIn
+  easeSpeed: 8
 --- !u!1001 &2122633709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27422,6 +27540,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
+      - m_Target: {fileID: 747726373}
+        m_TargetAssemblyTypeName: HouseEaseIn, Assembly-CSharp
+        m_MethodName: Unlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
