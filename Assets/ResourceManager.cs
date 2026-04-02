@@ -7,6 +7,7 @@ public class ResourceManager : MonoBehaviour
     [Header("Crops")]
     public float cropCount = 0f;
     public float cropGrowthRate = 0f;
+    public ToggleCropParticle cropParticle;
 
     [Header("Electricity")]
     public float electricityCount = 0f;
@@ -45,6 +46,14 @@ public class ResourceManager : MonoBehaviour
         {
             cropCount += curPowerUpMulti * cropGrowthRate * happiness - houseUpkeepPerSecond;
             if (cropCount < 0) cropCount = 0;
+            if (cropParticle != null)
+            {
+                int cropBurstCount = Mathf.FloorToInt(curPowerUpMulti * cropGrowthRate * happiness);
+                if (cropBurstCount > 0)
+                {
+                    cropParticle.TriggerParticle(cropBurstCount);
+                }
+            }
 
             electricityCount += Mathf.FloorToInt(electricityGrowthRate * happiness);
             
