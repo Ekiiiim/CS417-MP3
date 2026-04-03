@@ -6248,6 +6248,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 575145401}
+        m_TargetAssemblyTypeName: HapticManager, Assembly-CSharp
+        m_MethodName: OnPowerUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   blinkingText: {fileID: 951046497}
   blinkInterval: 0.5
   isOneTimeUse: 0
@@ -7835,6 +7847,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 575145401}
+        m_TargetAssemblyTypeName: HapticManager, Assembly-CSharp
+        m_MethodName: OnCoffeeShopUnlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   blinkingText: {fileID: 798098969}
   blinkInterval: 0.5
   isOneTimeUse: 1
@@ -8987,6 +9011,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 575145401}
+        m_TargetAssemblyTypeName: HapticManager, Assembly-CSharp
+        m_MethodName: OnPowerUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   blinkingText: {fileID: 619277058}
   blinkInterval: 0.5
   isOneTimeUse: 0
@@ -10047,6 +10083,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 575145401}
+        m_TargetAssemblyTypeName: HapticManager, Assembly-CSharp
+        m_MethodName: OnBuildingUnlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   blinkingText: {fileID: 1353903551}
   blinkInterval: 0.5
   isOneTimeUse: 1
@@ -11005,6 +11053,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 575145401}
+        m_TargetAssemblyTypeName: HapticManager, Assembly-CSharp
+        m_MethodName: OnBuildingUnlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   blinkingText: {fileID: 1976528758}
   blinkInterval: 0.5
   isOneTimeUse: 1
@@ -11604,6 +11664,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 575145401}
+        m_TargetAssemblyTypeName: HapticManager, Assembly-CSharp
+        m_MethodName: OnPowerUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   blinkingText: {fileID: 1685633354}
   blinkInterval: 0.5
   isOneTimeUse: 0
@@ -14438,6 +14510,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 39126504209013055, guid: 1e14dcd97bcf3c044a339bfc1978beab, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 59816456958996339, guid: 1e14dcd97bcf3c044a339bfc1978beab, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.8555
@@ -14482,10 +14558,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: CropPowerUp
       objectReference: {fileID: 0}
+    - target: {fileID: 61144650155883939, guid: 1e14dcd97bcf3c044a339bfc1978beab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5341822191469381903, guid: 1e14dcd97bcf3c044a339bfc1978beab, type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 511876077}
+    - target: {fileID: 5454551749887206295, guid: 1e14dcd97bcf3c044a339bfc1978beab, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5454551749887206295, guid: 1e14dcd97bcf3c044a339bfc1978beab, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5454551749887206295, guid: 1e14dcd97bcf3c044a339bfc1978beab, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 575145401}
+    - target: {fileID: 5454551749887206295, guid: 1e14dcd97bcf3c044a339bfc1978beab, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5454551749887206295, guid: 1e14dcd97bcf3c044a339bfc1978beab, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnCropPowerUpActivate
+      objectReference: {fileID: 0}
+    - target: {fileID: 5454551749887206295, guid: 1e14dcd97bcf3c044a339bfc1978beab, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: HapticManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5454551749887206295, guid: 1e14dcd97bcf3c044a339bfc1978beab, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14650,7 +14758,7 @@ MonoBehaviour:
         m_CallState: 1
       - m_Target: {fileID: 575145401}
         m_TargetAssemblyTypeName: HapticManager, Assembly-CSharp
-        m_MethodName: TriggerHaptic
+        m_MethodName: OnCropClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14827,6 +14935,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 575145401}
+        m_TargetAssemblyTypeName: HapticManager, Assembly-CSharp
+        m_MethodName: OnBuildingUnlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   blinkingText: {fileID: 1930083209}
   blinkInterval: 0.5
   isOneTimeUse: 1
@@ -16428,6 +16548,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 575145401}
+        m_TargetAssemblyTypeName: HapticManager, Assembly-CSharp
+        m_MethodName: OnBuildingUnlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   blinkingText: {fileID: 1857729664}
   blinkInterval: 0.5
   isOneTimeUse: 1
@@ -21893,6 +22025,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 575145401}
+        m_TargetAssemblyTypeName: HapticManager, Assembly-CSharp
+        m_MethodName: OnSupermarketUnlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 2
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   blinkingText: {fileID: 385427979}
   blinkInterval: 0.5
   isOneTimeUse: 1
@@ -22355,6 +22499,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 575145401}
+        m_TargetAssemblyTypeName: HapticManager, Assembly-CSharp
+        m_MethodName: OnPowerUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   blinkingText: {fileID: 1547499582}
   blinkInterval: 0.5
   isOneTimeUse: 0
@@ -23288,6 +23444,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 575145401}
+        m_TargetAssemblyTypeName: HapticManager, Assembly-CSharp
+        m_MethodName: OnNewRegionUnlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   blinkingText: {fileID: 1493140890}
   blinkInterval: 0.5
   isOneTimeUse: 1
@@ -23547,6 +23715,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 575145401}
+        m_TargetAssemblyTypeName: HapticManager, Assembly-CSharp
+        m_MethodName: OnStadiumUnlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 10
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   blinkingText: {fileID: 1613169150}
   blinkInterval: 0.5
   isOneTimeUse: 1
@@ -26491,6 +26671,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 575145401}
+        m_TargetAssemblyTypeName: HapticManager, Assembly-CSharp
+        m_MethodName: OnPowerUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   blinkingText: {fileID: 1095620121}
   blinkInterval: 0.5
   isOneTimeUse: 0
@@ -26900,6 +27092,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 575145401}
+        m_TargetAssemblyTypeName: HapticManager, Assembly-CSharp
+        m_MethodName: OnPowerUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   blinkingText: {fileID: 1293946776}
   blinkInterval: 0.5
   isOneTimeUse: 0
@@ -27648,6 +27852,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 575145401}
+        m_TargetAssemblyTypeName: HapticManager, Assembly-CSharp
+        m_MethodName: OnBuildingUnlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   blinkingText: {fileID: 8752136688361420356}
   blinkInterval: 0.5
   isOneTimeUse: 1
