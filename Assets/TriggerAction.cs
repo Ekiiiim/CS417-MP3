@@ -29,7 +29,7 @@ public class TriggerAction : MonoBehaviour
     public TMP_Text cooldownText;
 
     [Header("Other")]
-    public bool isOneTimeUse = false;
+    public bool isOneTimeUse = true;
 
     private bool isPlayerInside = false;
     private Coroutine blinkingCoroutine;
@@ -112,7 +112,9 @@ public class TriggerAction : MonoBehaviour
                 StopCoroutine(blinkingCoroutine);
                 blinkingCoroutine = null;
             }
-            blinkingText.SetActive(false);
+
+            if (blinkingText != null)
+                blinkingText.SetActive(false);
         }
     }
 
@@ -120,7 +122,9 @@ public class TriggerAction : MonoBehaviour
     {
         while (isPlayerInside)
         {
-            blinkingText.SetActive(!blinkingText.activeSelf);
+            if (blinkingText != null)
+                blinkingText.SetActive(!blinkingText.activeSelf);
+
             yield return new WaitForSeconds(blinkInterval);
         }
     }
