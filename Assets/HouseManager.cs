@@ -24,6 +24,8 @@ public class HouseManager : MonoBehaviour
     private float currentUpkeep = 0;
     private int currentCost;
 
+    public bool isUnlocked;
+
     private void OnEnable()
     {
         currentCost = baseCost * costMultiplierPerUpgrade;
@@ -32,7 +34,11 @@ public class HouseManager : MonoBehaviour
 
     private void OnDisable()
     {
-        RemoveContribution();
+        if (currentContribution != 0)
+        {
+            isUnlocked = true;
+        }
+    //     RemoveContribution();
     }
 
     public void ActivateHouse()
@@ -40,6 +46,8 @@ public class HouseManager : MonoBehaviour
         ApplyContribution();
         ApplyUpkeep();
         UpdateUI();
+        isUnlocked = true;
+        houseVisuals[level].SetActive(true);
     }
 
     public void UpgradeHouse()
