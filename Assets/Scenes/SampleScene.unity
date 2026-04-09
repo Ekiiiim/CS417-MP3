@@ -4902,7 +4902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &558759789
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5589,6 +5589,7 @@ GameObject:
   - component: {fileID: 592553279}
   - component: {fileID: 592553278}
   - component: {fileID: 592553277}
+  - component: {fileID: 592553280}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5680,6 +5681,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &592553280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592553275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43576b8d95054c03884bb481959602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpringPopInAnimator
+  targetScale: {x: 0.001183492, y: 0.004570536, z: 0.1376062}
+  stiffness: 150
+  damping: 3
 --- !u!1001 &593357872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10627,6 +10643,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1177513189}
+        m_TargetAssemblyTypeName: SpringPopInAnimator, Assembly-CSharp
+        m_MethodName: TriggerPopIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
   blinkingText: {fileID: 1353903551}
   blinkInterval: 0.5
   isOneTimeUse: 1
@@ -11094,6 +11122,7 @@ GameObject:
   - component: {fileID: 1177513188}
   - component: {fileID: 1177513187}
   - component: {fileID: 1177513186}
+  - component: {fileID: 1177513189}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -11185,6 +11214,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1177513189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177513184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43576b8d95054c03884bb481959602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpringPopInAnimator
+  targetScale: {x: 0.0011834918, y: 0.0045705363, z: 0.13760625}
+  stiffness: 150
+  damping: 3
 --- !u!1001 &1180435531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15132,7 +15176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 61144650155883939, guid: 1e14dcd97bcf3c044a339bfc1978beab, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5341822191469381903, guid: 1e14dcd97bcf3c044a339bfc1978beab, type: 3}
       propertyPath: gameManager
@@ -15352,6 +15396,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SpringPopInAnimator, Assembly-CSharp
+        m_MethodName: TriggerPopIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
   blinkingText: {fileID: 1399122859}
   blinkInterval: 0.5
   isOneTimeUse: 0
@@ -15536,6 +15592,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1649801754}
+        m_TargetAssemblyTypeName: SpringPopInAnimator, Assembly-CSharp
+        m_MethodName: TriggerPopIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
   blinkingText: {fileID: 1930083209}
   blinkInterval: 0.5
   isOneTimeUse: 1
@@ -17149,6 +17217,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 592553280}
+        m_TargetAssemblyTypeName: SpringPopInAnimator, Assembly-CSharp
+        m_MethodName: TriggerPopIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
   blinkingText: {fileID: 1857729664}
   blinkInterval: 0.5
   isOneTimeUse: 1
@@ -22794,6 +22874,7 @@ GameObject:
   - component: {fileID: 1649801753}
   - component: {fileID: 1649801752}
   - component: {fileID: 1649801751}
+  - component: {fileID: 1649801754}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -22885,6 +22966,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1649801754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649801749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43576b8d95054c03884bb481959602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpringPopInAnimator
+  targetScale: {x: 0.0011834918, y: 0.0045705363, z: 0.13760625}
+  stiffness: 150
+  damping: 3
 --- !u!1001 &1657811128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24720,6 +24816,7 @@ GameObject:
   - component: {fileID: 1780052751}
   - component: {fileID: 1780052750}
   - component: {fileID: 1780052749}
+  - component: {fileID: 1780052752}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -24811,6 +24908,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1780052752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780052747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43576b8d95054c03884bb481959602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpringPopInAnimator
+  targetScale: {x: 0.001183492, y: 0.004570536, z: 0.1376062}
+  stiffness: 150
+  damping: 3
 --- !u!1001 &1796720189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28628,6 +28740,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1780052752}
+        m_TargetAssemblyTypeName: SpringPopInAnimator, Assembly-CSharp
+        m_MethodName: TriggerPopIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
   blinkingText: {fileID: 8752136688361420356}
   blinkInterval: 0.5
   isOneTimeUse: 1
