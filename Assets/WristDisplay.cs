@@ -12,24 +12,30 @@ public class WristDisplay : MonoBehaviour
     public InputActionReference toggleCanvasAction;
 
     public Vector3 targetScale = new Vector3(0.0005f, 0.0005f, 0.0005f);
-    public float stiffness = 150f;
-    public float damping = 10f;
 
     private Color bronzeColor = new Color(0.8f, 0.5f, 0.2f);
     private Color silverColor = new Color(0.83f, 0.83f, 0.83f);
     private Color goldColor = new Color(1f, 0.84f, 0f);
 
-    private float currentScale, velocity;
-    private bool isAnimating = false;
     private bool showTutorial = false;
 
     private bool trophyCrops1kUnlocked;
     private bool trophyCrops10kUnlocked;
     private bool trophyElectricity1kUnlocked;
 
+    private SpringPopInAnimator popInAnimator;
+
     void Start()
     {
         toggleCanvasAction.action.performed += ToggleCanvasVisibility;
+
+        popInAnimator = GetComponent<SpringPopInAnimator>();
+        if (popInAnimator == null)
+        {
+            popInAnimator = gameObject.AddComponent<SpringPopInAnimator>();
+        }
+        popInAnimator.targetScale = targetScale;
+
         transform.localScale = Vector3.zero;
         TriggerPopIn();
     }
@@ -64,7 +70,6 @@ public class WristDisplay : MonoBehaviour
 
     void Update()
     {
-        if (isAnimating) HandleSpringScale();
         if (showTutorial || !gameObject.activeSelf) return;
 
         CheckAchievementMilestones();
@@ -133,24 +138,10 @@ public class WristDisplay : MonoBehaviour
 
     private void TriggerPopIn()
     {
-        currentScale = 0f;
-        velocity = 0f;
         gameObject.SetActive(true);
-        isAnimating = true;
-    }
-
-    private void HandleSpringScale()
-    {
-        float force = (1f - currentScale) * stiffness;
-        velocity += force * Time.deltaTime;
-        velocity -= velocity * damping * Time.deltaTime;
-        currentScale += velocity * Time.deltaTime;
-        transform.localScale = targetScale * currentScale;
-
-        if (Mathf.Abs(1f - currentScale) < 0.001f && Mathf.Abs(velocity) < 0.001f)
+        if (popInAnimator != null)
         {
-            transform.localScale = targetScale;
-            isAnimating = false;
+            popInAnimator.TriggerPopIn();
         }
     }
 
