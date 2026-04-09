@@ -29,7 +29,7 @@ public class TriggerAction : MonoBehaviour
     public TMP_Text cooldownText;
 
     [Header("Other")]
-    public bool isOneTimeUse = true;
+    public bool isOneTimeUse = false;
 
     private bool isPlayerInside = false;
     private Coroutine blinkingCoroutine;
