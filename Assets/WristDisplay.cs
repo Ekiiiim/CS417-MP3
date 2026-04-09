@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
 using System;
-using System.Collections;
 
 public class WristDisplay : MonoBehaviour
 {
@@ -15,9 +14,18 @@ public class WristDisplay : MonoBehaviour
     public Vector3 targetScale = new Vector3(0.0005f, 0.0005f, 0.0005f);
     public float stiffness = 150f;
     public float damping = 10f;
+
+    private Color bronzeColor = new Color(0.8f, 0.5f, 0.2f);
+    private Color silverColor = new Color(0.83f, 0.83f, 0.83f);
+    private Color goldColor = new Color(1f, 0.84f, 0f);
+
     private float currentScale, velocity;
     private bool isAnimating = false;
     private bool showTutorial = false;
+
+    private bool trophyCrops1kUnlocked;
+    private bool trophyCrops10kUnlocked;
+    private bool trophyElectricity1kUnlocked;
 
     void Start()
     {
@@ -50,6 +58,8 @@ public class WristDisplay : MonoBehaviour
         InfoText.fontSize = 16f;
         TitleText.text = "Status Board";
         HintText.text = "Press X to close/open";
+        TitleText.color = Color.black;
+        InfoText.color = Color.black;
     }
 
     void Update()
@@ -57,7 +67,46 @@ public class WristDisplay : MonoBehaviour
         if (isAnimating) HandleSpringScale();
         if (showTutorial || !gameObject.activeSelf) return;
 
+        CheckAchievementMilestones();
+        if (showTutorial) return;
         UpdateStatusText();
+    }
+
+    private void CheckAchievementMilestones()
+    {
+        if (ResourceManager.Instance == null) return;
+
+        if (!trophyCrops1kUnlocked && ResourceManager.Instance.cropCount >= 500f)
+        {
+            trophyCrops1kUnlocked = true;
+            ShowAchievement("Bronze Harvest Trophy", "\nReached 500 crops.", bronzeColor);
+            return;
+        }
+
+        if (!trophyCrops10kUnlocked && ResourceManager.Instance.cropCount >= 2000f)
+        {
+            trophyCrops10kUnlocked = true;
+            ShowAchievement("Silver Harvest Trophy", "Reached 2,000 crops.", silverColor);
+            return;
+        }
+
+        if (!trophyElectricity1kUnlocked && ResourceManager.Instance.electricityCount >= 1000f)
+        {
+            trophyElectricity1kUnlocked = true;
+            ShowAchievement("Power Pioneer Trophy", "Reached 1,000 electricity.", goldColor);
+        }
+    }
+
+    private void ShowAchievement(string trophyTitle, string trophyDescription, Color flashColor)
+    {
+        showTutorial = true;
+        TitleText.text = $"{trophyTitle}";
+        InfoText.fontSize = 17f;
+        InfoText.text = trophyDescription;
+        HintText.text = "Press X to dismiss";
+        TitleText.color = flashColor;
+        InfoText.color = flashColor;
+        TriggerPopIn();
     }
 
     private void UpdateStatusText()
@@ -111,6 +160,8 @@ public class WristDisplay : MonoBehaviour
         TitleText.text = "Tutorial: Houses";
         InfoText.text = "House residents help you collect crops, but houses require upkeep!\n\nUpgrade houses to exponentially increase residents' efficiency.";
         HintText.text = "Press X to dismiss";
+        TitleText.color = Color.black;
+        InfoText.color = Color.black;
         TriggerPopIn();
     }
 
@@ -121,5 +172,8 @@ public class WristDisplay : MonoBehaviour
         InfoText.fontSize = 12f;
         InfoText.text = "Welcome to the city! Now you can access the power plant. It generates electricity, which can be used to build facilities that boost your residents' happiness.\n\nThe happiness index is multiplied to the generation rates of all resources.";
         HintText.text = "Press X to dismiss";
+        TitleText.color = Color.black;
+        InfoText.color = Color.black;
+        TriggerPopIn();
     }
 }
