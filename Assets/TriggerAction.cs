@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 using UnityEngine.Events;
+using TMPro;
 
 public class TriggerAction : MonoBehaviour
 {
@@ -19,8 +20,16 @@ public class TriggerAction : MonoBehaviour
     public GameObject blinkingText;
     public float blinkInterval = 0.5f;
 
+    [Header("Cooldown")]
+    public float cooldownDuration = 2f;
+    private float cooldownRemaining = 0f;
+    private bool isOnCooldown = false;
+
+    [Header("Cooldown UI")]
+    public TMP_Text cooldownText;
+
     [Header("Other")]
-    public bool isOneTimeUse = true;
+    public bool isOneTimeUse = false;
 
     private bool isPlayerInside = false;
     private Coroutine blinkingCoroutine;
@@ -29,11 +38,42 @@ public class TriggerAction : MonoBehaviour
 
     private void OnDisable() => action.action.performed -= HandleInput;
 
+    private void Update()
+    {
+        if (isOnCooldown)
+        {
+            cooldownRemaining -= Time.deltaTime;
+
+            if (cooldownRemaining < 0f)
+                cooldownRemaining = 0f;
+
+            if (cooldownText != null)
+                cooldownText.text = "Cooldown: " + cooldownRemaining.ToString("0.0") + "s";
+
+            if (cooldownRemaining <= 0f)
+            {
+                isOnCooldown = false;
+
+                if (cooldownText != null)
+                    cooldownText.text = "Ready";
+            }
+        }
+    }
+
     private void HandleInput(InputAction.CallbackContext context)
     {
+        if (isOnCooldown) return;
+
         if (isPlayerInside && SpendResource())
         {
             OnActionExecuted.Invoke();
+
+            isOnCooldown = true;
+            cooldownRemaining = cooldownDuration;
+
+            if (cooldownText != null)
+                cooldownText.text = "Cooldown: " + cooldownRemaining.ToString("0.0") + "s";
+
             if (isOneTimeUse) this.gameObject.SetActive(false);
         }
     }
