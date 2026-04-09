@@ -38,7 +38,7 @@ public class HouseManager : MonoBehaviour
         {
             isUnlocked = true;
         }
-    //     RemoveContribution();
+        //     RemoveContribution();
     }
 
     public void ActivateHouse()
@@ -47,7 +47,7 @@ public class HouseManager : MonoBehaviour
         ApplyUpkeep();
         UpdateUI();
         isUnlocked = true;
-        houseVisuals[level].SetActive(true);
+        houseVisuals[level - 1].SetActive(true);
     }
 
     public void UpgradeHouse()
@@ -111,14 +111,19 @@ public class HouseManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        if (levelText != null) {
+        if (levelText != null)
+        {
             levelText.text = $"House Lv {level}\n+{currentContribution:F2} crops/sec\nUpkeep: {currentUpkeep:F2} crops/sec";
         }
-        if (IsMaxLevel()) {
-            if (upgradeTrigger != null) {
+        if (IsMaxLevel())
+        {
+            if (upgradeTrigger != null)
+            {
                 upgradeTrigger.SetActive(false);
             }
-        } else if (upgradeText != null) {
+        }
+        else if (upgradeText != null)
+        {
             upgradeText.text = $"Upgrade a House with {currentCost} crops?";
         }
     }
