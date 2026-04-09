@@ -16,6 +16,8 @@ public class PowerPlantManager : MonoBehaviour
     private int costMultiplierPerUpgrade = 2;
     private float currentContribution = 0;
 
+    public bool isUnlocked = false;
+
     private void OnEnable()
     {
     }
@@ -29,6 +31,7 @@ public class PowerPlantManager : MonoBehaviour
     {
         ApplyContribution();
         UpdateUI();
+        isUnlocked = true;
     }
 
     public void UpgradePowerPlant()
@@ -75,4 +78,6 @@ public class PowerPlantManager : MonoBehaviour
     }
 
     public bool IsMaxLevel() => level >= maxLevel;
+
+    public int GetLevel() => level;
 }

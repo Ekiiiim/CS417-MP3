@@ -899,6 +899,7 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 2098542832}
   levelText: {fileID: 1388827734}
   upgradeText: {fileID: 958110360}
+  isUnlocked: 0
 --- !u!114 &78944100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6541,6 +6542,8 @@ MonoBehaviour:
         m_CallState: 2
   blinkingText: {fileID: 951046497}
   blinkInterval: 0.5
+  cooldownDuration: 2
+  cooldownText: {fileID: 0}
   isOneTimeUse: 0
 --- !u!65 &739673551
 BoxCollider:
@@ -6683,6 +6686,7 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 739673548}
   levelText: {fileID: 1697601725}
   upgradeText: {fileID: 339174331}
+  isUnlocked: 0
 --- !u!114 &747726373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8140,6 +8144,8 @@ MonoBehaviour:
         m_CallState: 2
   blinkingText: {fileID: 798098969}
   blinkInterval: 0.5
+  cooldownDuration: 2
+  cooldownText: {fileID: 0}
   isOneTimeUse: 1
 --- !u!65 &921494813
 BoxCollider:
@@ -9304,6 +9310,8 @@ MonoBehaviour:
         m_CallState: 2
   blinkingText: {fileID: 619277058}
   blinkInterval: 0.5
+  cooldownDuration: 2
+  cooldownText: {fileID: 0}
   isOneTimeUse: 0
 --- !u!65 &1000677054
 BoxCollider:
@@ -10376,6 +10384,8 @@ MonoBehaviour:
         m_CallState: 2
   blinkingText: {fileID: 1353903551}
   blinkInterval: 0.5
+  cooldownDuration: 2
+  cooldownText: {fileID: 0}
   isOneTimeUse: 1
 --- !u!65 &1115317924
 BoxCollider:
@@ -11346,6 +11356,8 @@ MonoBehaviour:
         m_CallState: 2
   blinkingText: {fileID: 1976528758}
   blinkInterval: 0.5
+  cooldownDuration: 2
+  cooldownText: {fileID: 0}
   isOneTimeUse: 1
 --- !u!65 &1205534838
 BoxCollider:
@@ -11960,6 +11972,8 @@ MonoBehaviour:
         m_CallState: 2
   blinkingText: {fileID: 1685633354}
   blinkInterval: 0.5
+  cooldownDuration: 2
+  cooldownText: {fileID: 0}
   isOneTimeUse: 0
 --- !u!65 &1268233136
 BoxCollider:
@@ -14189,6 +14203,38 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1414399452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1414399453}
+  m_Layer: 0
+  m_Name: SaveSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1414399453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414399452}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.49096, y: 0.55, z: -7.45758}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1988797487}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1424375021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15057,6 +15103,8 @@ MonoBehaviour:
         m_CallState: 1
   blinkingText: {fileID: 1399122859}
   blinkInterval: 0.5
+  cooldownDuration: 2
+  cooldownText: {fileID: 0}
   isOneTimeUse: 0
 --- !u!1001 &1480008149
 PrefabInstance:
@@ -15241,6 +15289,8 @@ MonoBehaviour:
         m_CallState: 2
   blinkingText: {fileID: 1930083209}
   blinkInterval: 0.5
+  cooldownDuration: 2
+  cooldownText: {fileID: 0}
   isOneTimeUse: 1
 --- !u!65 &1484979809
 BoxCollider:
@@ -16854,6 +16904,8 @@ MonoBehaviour:
         m_CallState: 2
   blinkingText: {fileID: 1857729664}
   blinkInterval: 0.5
+  cooldownDuration: 2
+  cooldownText: {fileID: 0}
   isOneTimeUse: 1
 --- !u!65 &1581137962
 BoxCollider:
@@ -22331,6 +22383,8 @@ MonoBehaviour:
         m_CallState: 2
   blinkingText: {fileID: 385427979}
   blinkInterval: 0.5
+  cooldownDuration: 2
+  cooldownText: {fileID: 0}
   isOneTimeUse: 1
 --- !u!65 &1623611467
 BoxCollider:
@@ -22805,6 +22859,8 @@ MonoBehaviour:
         m_CallState: 2
   blinkingText: {fileID: 1547499582}
   blinkInterval: 0.5
+  cooldownDuration: 2
+  cooldownText: {fileID: 0}
   isOneTimeUse: 0
 --- !u!65 &1683825669
 BoxCollider:
@@ -23291,6 +23347,9 @@ MonoBehaviour:
   HintText: {fileID: 1063328736}
   CityWall: {fileID: 476427103}
   toggleCanvasAction: {fileID: 1704327547}
+  targetScale: {x: 0.0005, y: 0.0005, z: 0.0005}
+  stiffness: 150
+  damping: 10
 --- !u!1 &1697601723
 GameObject:
   m_ObjectHideFlags: 0
@@ -23762,6 +23821,8 @@ MonoBehaviour:
         m_CallState: 1
   blinkingText: {fileID: 1493140890}
   blinkInterval: 0.5
+  cooldownDuration: 2
+  cooldownText: {fileID: 0}
   isOneTimeUse: 1
 --- !u!1 &1720956792
 GameObject:
@@ -23826,6 +23887,7 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 2125296687}
   levelText: {fileID: 868022446}
   upgradeText: {fileID: 559474952}
+  isUnlocked: 0
 --- !u!114 &1720956795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24033,6 +24095,8 @@ MonoBehaviour:
         m_CallState: 2
   blinkingText: {fileID: 1613169150}
   blinkInterval: 0.5
+  cooldownDuration: 2
+  cooldownText: {fileID: 0}
   isOneTimeUse: 1
 --- !u!65 &1758301833
 BoxCollider:
@@ -24701,6 +24765,7 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 1268233133}
   levelText: {fileID: 1778708862}
   upgradeText: {fileID: 1558851576}
+  isUnlocked: 0
 --- !u!4 &1818505061
 Transform:
   m_ObjectHideFlags: 0
@@ -26257,6 +26322,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976528758}
   m_CullTransparentMesh: 1
+--- !u!1 &1988797486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1988797487}
+  - component: {fileID: 1988797488}
+  m_Layer: 0
+  m_Name: SaveLoadManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1988797487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988797486}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1414399453}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1988797488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988797486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18b9aaaf686d0c499178d28ebcdb8e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveLoad
+  resourceManager: {fileID: 511876077}
+  houseList:
+  - {fileID: 747726372}
+  - {fileID: 2113486148}
+  - {fileID: 1720956794}
+  - {fileID: 78944099}
+  - {fileID: 2017405257}
+  powerPlantList:
+  - {fileID: 1818505060}
+  autoSave: 1
+  debugMode: 1
+  fileName: SAVE.dat
 --- !u!1001 &2001935238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26483,6 +26604,7 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 1683825666}
   levelText: {fileID: 1604050368}
   upgradeText: {fileID: 1021703257}
+  isUnlocked: 0
 --- !u!114 &2017405258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27090,6 +27212,8 @@ MonoBehaviour:
         m_CallState: 2
   blinkingText: {fileID: 1095620121}
   blinkInterval: 0.5
+  cooldownDuration: 2
+  cooldownText: {fileID: 0}
   isOneTimeUse: 0
 --- !u!65 &2098542835
 BoxCollider:
@@ -27356,6 +27480,7 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 1000677051}
   levelText: {fileID: 1425789879}
   upgradeText: {fileID: 1294460777}
+  isUnlocked: 0
 --- !u!114 &2113486149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27511,6 +27636,8 @@ MonoBehaviour:
         m_CallState: 2
   blinkingText: {fileID: 1293946776}
   blinkInterval: 0.5
+  cooldownDuration: 2
+  cooldownText: {fileID: 0}
   isOneTimeUse: 0
 --- !u!65 &2125296690
 BoxCollider:
@@ -28271,6 +28398,8 @@ MonoBehaviour:
         m_CallState: 2
   blinkingText: {fileID: 8752136688361420356}
   blinkInterval: 0.5
+  cooldownDuration: 2
+  cooldownText: {fileID: 0}
   isOneTimeUse: 1
 --- !u!224 &8279473309916730879
 RectTransform:
@@ -28365,3 +28494,4 @@ SceneRoots:
   - {fileID: 1462160850}
   - {fileID: 1818505061}
   - {fileID: 428787629}
+  - {fileID: 1414399453}
