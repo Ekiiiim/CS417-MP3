@@ -36,7 +36,7 @@ public class ResourceManager : MonoBehaviour
         if (powerUpTimer > 0f)
         {
             curPowerUpMulti = powerUpMultiplier;
-        } 
+        }
         else
         {
             curPowerUpMulti = 1f;
@@ -48,7 +48,7 @@ public class ResourceManager : MonoBehaviour
             if (cropCount < 0) cropCount = 0;
             if (cropParticle != null)
             {
-                int cropBurstCount = Mathf.FloorToInt(curPowerUpMulti * cropGrowthRate * happiness);
+                int cropBurstCount = Mathf.FloorToInt(curPowerUpMulti * cropGrowthRate * happiness - houseUpkeepPerSecond);
                 if (cropBurstCount > 0)
                 {
                     cropParticle.TriggerParticle(cropBurstCount);
@@ -56,7 +56,7 @@ public class ResourceManager : MonoBehaviour
             }
 
             electricityCount += Mathf.FloorToInt(electricityGrowthRate * happiness);
-            
+
             timer -= 1f;
         }
     }
@@ -70,7 +70,7 @@ public class ResourceManager : MonoBehaviour
         houseUpkeepPerSecond -= amountPerSecond;
         if (houseUpkeepPerSecond < 0) houseUpkeepPerSecond = 0;
     }
-    
+
     public void IncreaseCropCount(float amount)
     {
         cropCount += amount;
