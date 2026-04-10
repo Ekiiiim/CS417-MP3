@@ -167,4 +167,29 @@ public class WristDisplay : MonoBehaviour
         InfoText.color = Color.black;
         TriggerPopIn();
     }
+
+    public void ShowWelcomeBack(float awaySeconds, float cropGain, float electricityGain)
+    {
+        showTutorial = true;
+        TitleText.text = "Welcome Back!";
+        InfoText.fontSize = 15f;
+
+        TimeSpan away = TimeSpan.FromSeconds(awaySeconds);
+        string awayText = $"Away: {away.Hours}h {away.Minutes}m {away.Seconds}s";
+
+        string gainsText = $"Offline gains:\n+{Mathf.Max(0f, cropGain):N0} crops";
+        if (!CityWall.activeSelf || electricityGain > 0f)
+        {
+            gainsText += $"\n+{Mathf.Max(0f, electricityGain):N0} electricity";
+        }
+
+        InfoText.text = $"{awayText}\n\n{gainsText}";
+        HintText.text = "Press X to dismiss";
+
+        Color welcomeColor = new Color(0.12f, 0.57f, 0.95f);
+        TitleText.color = welcomeColor;
+        InfoText.color = welcomeColor;
+
+        TriggerPopIn();
+    }
 }

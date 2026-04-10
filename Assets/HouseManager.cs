@@ -20,6 +20,11 @@ public class HouseManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI upgradeText;
 
+    [Header("Others")]
+    [SerializeField] private GameObject unlockableHouse;
+    [SerializeField] private GameObject houseUnlocker;
+    [SerializeField] private GameObject nextUnlockableHouse;
+
     private float currentContribution = 0;
     private float currentUpkeep = 0;
     private int currentCost;
@@ -131,4 +136,44 @@ public class HouseManager : MonoBehaviour
     public int GetLevel() => level;
 
     public bool IsMaxLevel() => level >= maxLevel;
+
+    public void ApplySavedState(bool unlocked, int savedLevel)
+    {
+        RemoveContribution();
+        RemoveUpkeep();
+
+        if (houseVisuals != null)
+        {
+            for (int i = 0; i < houseVisuals.Length; i++)
+            {
+                if (houseVisuals[i] != null)
+                {
+                    houseVisuals[i].SetActive(false);
+                }
+            }
+        }
+
+        isUnlocked = unlocked;
+        level = Mathf.Clamp(savedLevel, 1, maxLevel);
+
+        int costPower = Mathf.Max(level, 1);
+        currentCost = baseCost * (int)Math.Pow(costMultiplierPerUpgrade, costPower);
+
+        if (isUnlocked)
+        {
+            ActivateHouse();
+            gameObject.SetActive(true);
+            unlockableHouse.SetActive(true);
+            houseUnlocker.SetActive(false);
+            if (nextUnlockableHouse != null)
+            {
+                nextUnlockableHouse.SetActive(true);
+            }
+            HouseEaseIn unlockableHouseEaseIn = gameObject.GetComponent<HouseEaseIn>();
+            if (unlockableHouseEaseIn != null)
+            {
+                unlockableHouseEaseIn.Unlock();
+            }
+        }
+    }
 }

@@ -8,7 +8,10 @@ public class PowerPlantManager : MonoBehaviour
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI upgradeText;
 
-    private float basePowerRate = 1f;    
+    public GameObject unlockableWall;
+    public GameObject canvas;
+
+    private float basePowerRate = 1f;
     private float multiplierPerUpgrade = 2f;
     private int level = 1;
     private int maxLevel = 5;
@@ -65,14 +68,19 @@ public class PowerPlantManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        if (levelText != null) {
+        if (levelText != null)
+        {
             levelText.text = $"Power Plant Lv {level}\n+{currentContribution:F2} electricity/sec";
         }
-        if (IsMaxLevel()) {
-            if (upgradeTrigger != null) {
+        if (IsMaxLevel())
+        {
+            if (upgradeTrigger != null)
+            {
                 upgradeTrigger.SetActive(false);
             }
-        } else if (upgradeText != null) {
+        }
+        else if (upgradeText != null)
+        {
             upgradeText.text = $"Upgrade Power Plant with {currentCost} crops?";
         }
     }
@@ -80,4 +88,21 @@ public class PowerPlantManager : MonoBehaviour
     public bool IsMaxLevel() => level >= maxLevel;
 
     public int GetLevel() => level;
+
+    public void ApplySavedState(bool unlocked, int savedLevel)
+    {
+        RemoveContribution();
+
+        isUnlocked = unlocked;
+        level = Mathf.Clamp(savedLevel, 1, maxLevel);
+        currentCost = 1000 * (int)Math.Pow(costMultiplierPerUpgrade, Mathf.Max(level - 1, 0));
+
+        if (isUnlocked)
+        {
+            unlockableWall.SetActive(false);
+            canvas.SetActive(true);
+            upgradeTrigger.SetActive(true);
+            ActivatePowerPlant();
+        }
+    }
 }

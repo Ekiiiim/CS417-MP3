@@ -1,60 +1,87 @@
 
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Resources;
 using UnityEngine;
+using UnityEngine.Events;
 
 [System.Serializable]
-public class Serializable
+public class SaveData
 {
+    public long savedUnixTime;
+
     public float cropCount;
     public float electricityCount;
     public float happiness;
-    public float houseUpkeepPerSecond;
+    public float powerUpTimer;
+
     public List<bool> houseUnlocks;
     public List<int> houseLevels;
     public List<bool> powerPlantUnlocks;
     public List<int> powerPlantLevels;
+    public bool coffeeShopUnlocked;
+    public bool superMarketUnlocked;
+    public bool stadiumUnlocked;
 
-    public Serializable(float _cropCount, float _electricityCount, float _happiness, float _houseUpkeepPerSecond, HouseManager[] _houseList, PowerPlantManager[] _powerPlantList)//, Vector3[] _audioNotePositions, string[] _audioNoteNames)
+    public SaveData(ResourceManager resourceManager, HouseManager[] houses, PowerPlantManager[] powerPlants, GameObject coffeeShop, GameObject superMarket, GameObject stadium)
     {
-        cropCount = _cropCount;
-        electricityCount = _electricityCount;
-        happiness = _happiness;
-        houseUpkeepPerSecond = _houseUpkeepPerSecond;
+        savedUnixTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+        cropCount = resourceManager.cropCount;
+        electricityCount = resourceManager.electricityCount;
+        happiness = resourceManager.happiness;
+        powerUpTimer = resourceManager.powerUpTimer;
+
         houseUnlocks = new List<bool>();
         houseLevels = new List<int>();
         powerPlantUnlocks = new List<bool>();
         powerPlantLevels = new List<int>();
-        foreach (HouseManager house in _houseList)
+
+        foreach (HouseManager house in houses)
         {
             houseUnlocks.Add(house.isUnlocked);
             houseLevels.Add(house.GetLevel());
         }
-        foreach (PowerPlantManager powerPlant in _powerPlantList)
+
+        foreach (PowerPlantManager powerPlant in powerPlants)
         {
             powerPlantUnlocks.Add(powerPlant.isUnlocked);
             powerPlantLevels.Add(powerPlant.GetLevel());
         }
+
+        coffeeShopUnlocked = coffeeShop != null && coffeeShop.activeSelf;
+        superMarketUnlocked = superMarket != null && superMarket.activeSelf;
+        stadiumUnlocked = stadium != null && stadium.activeSelf;
     }
 }
 
-public class SaveLoad : MonoBehaviour {
+public class SaveLoad : MonoBehaviour
+{
 
     public ResourceManager resourceManager;
     public HouseManager[] houseList;
     public PowerPlantManager[] powerPlantList;
-    //public Serializable serializable;
 
-    //public AudioNoteManager audioNoteManager;
-    //note list count
-    //positions of notes
-    //name of files
+    [Header("Additional Buildings")]
+    public GameObject unlockableCoffeeShop;
+    public GameObject coffeeShopUnlockTrigger;
+    public GameObject unlockableSuperMarket;
+    public GameObject superMarketUnlockTrigger;
+    public GameObject unlockableStadium;
+    public GameObject stadiumUnlockTrigger;
+
+    [Header("Welcome Back")]
+    public WristDisplay wristDisplay;
+    public UnityEvent onWelcomeBack;
+
+    [Header("Save Options")]
     public bool autoSave = true;
     public bool debugMode = false;
     public string fileName = "Sample.dat";
 
-    private void Awake()
+    private string SavePath => Path.Combine(Application.persistentDataPath, fileName);
+
+    private void Start()
     {
         if (autoSave)
         {
@@ -62,88 +89,119 @@ public class SaveLoad : MonoBehaviour {
         }
     }
 
-    // void OnGUI()
-    // {
-    //     if(GUI.Button(new Rect(10, 10, 100, 50), "Save"))
-    //     {
-    //         Save();
-    //     }
-
-    //     if (GUI.Button(new Rect(10, 70, 100, 50), "Load"))
-    //     {
-    //         Load();
-    //     }
-
-    //     if (GUI.Button(new Rect(Screen.width - 110, 10, 100, 50), "NextPart"))
-    //     {
-    //         objectManager.EnableChildAt((objectManager.enabledObjectIndex + 1) % objectManager.partList.Count);
-    //     }
-
-    //     if (GUI.Button(new Rect(Screen.width - 110, 70, 100, 50), "NextColor"))
-    //     {
-    //         materialManager.EnableMaterialAt((materialManager.enabledColorIndex + 1) % materialManager.materials.Count);
-    //     }
-
-    // }
-
     private void OnDisable()
     {
-        if(autoSave){
+        if (autoSave)
+        {
             Save();
         }
     }
 
-    private string PrepJson()
+    private void OnApplicationQuit()
     {
-        Serializable serializable = new Serializable(resourceManager.cropCount, resourceManager.electricityCount, resourceManager.happiness, resourceManager.houseUpkeepPerSecond, houseList, powerPlantList);
-
-        return JsonUtility.ToJson(serializable);
+        if (autoSave)
+        {
+            Save();
+        }
     }
 
-    private void LoadJson(string _jsonString)
+    private string BuildJson()
     {
-        Serializable serializable = JsonUtility.FromJson<Serializable>(_jsonString);
-        resourceManager.cropCount = serializable.cropCount;
-        resourceManager.electricityCount = serializable.electricityCount;
-        // resourceManager.happiness = serializable.happiness;
-        // resourceManager.houseUpkeepPerSecond = serializable.houseUpkeepPerSecond;
-        for (int i = 0; i < houseList.Length; i++)
+        SaveData saveData = new SaveData(resourceManager, houseList, powerPlantList, unlockableCoffeeShop, unlockableSuperMarket, unlockableStadium);
+        return JsonUtility.ToJson(saveData);
+    }
+
+    private void LoadFromJson(string jsonString)
+    {
+        SaveData saveData = JsonUtility.FromJson<SaveData>(jsonString);
+        if (saveData == null)
         {
-            if (serializable.houseUnlocks[i])
+            if (debugMode)
             {
-                houseList[i].ActivateHouse();
-                for (int j = 0; j < serializable.houseLevels[i] - 1; j--)
-                {
-                    houseList[i].UpgradeHouse();
-                }
+                Debug.LogWarning("SaveLoad: Invalid save file content.");
             }
+            return;
         }
-        //foreach(Vector3 pos in serializable.audioNotePositions)
-        //{
-        //    Debug.Log("AudioNote Position: " + pos);
-        //}
-        //audioNoteManager.SetAudioNotesFromLoad(serializable.audioNotePositions, serializable.audioNoteNames);
+
+        resourceManager.cropCount = saveData.cropCount;
+        resourceManager.electricityCount = saveData.electricityCount;
+        resourceManager.happiness = saveData.happiness;
+        resourceManager.powerUpTimer = Mathf.Max(0f, saveData.powerUpTimer);
+
+        resourceManager.cropGrowthRate = 0f;
+        resourceManager.electricityGrowthRate = 0f;
+        resourceManager.houseUpkeepPerSecond = 0f;
+
+        int houseCount = Mathf.Min(houseList.Length, saveData.houseUnlocks.Count, saveData.houseLevels.Count);
+        for (int i = 0; i < houseCount; i++)
+        {
+            houseList[i].ApplySavedState(saveData.houseUnlocks[i], saveData.houseLevels[i]);
+        }
+
+        int powerPlantCount = Mathf.Min(powerPlantList.Length, saveData.powerPlantUnlocks.Count, saveData.powerPlantLevels.Count);
+        for (int i = 0; i < powerPlantCount; i++)
+        {
+            powerPlantList[i].ApplySavedState(saveData.powerPlantUnlocks[i], saveData.powerPlantLevels[i]);
+        }
+
+        ApplyBuildingUnlockState(unlockableCoffeeShop, coffeeShopUnlockTrigger, saveData.coffeeShopUnlocked);
+        ApplyBuildingUnlockState(unlockableSuperMarket, superMarketUnlockTrigger, saveData.superMarketUnlocked);
+        ApplyBuildingUnlockState(unlockableStadium, stadiumUnlockTrigger, saveData.stadiumUnlocked);
+
+        ApplyOfflineEulerProgress(saveData.savedUnixTime);
+    }
+
+    private void ApplyBuildingUnlockState(GameObject building, GameObject unlockTrigger, bool unlocked)
+    {
+        if (building != null)
+        {
+            building.SetActive(unlocked);
+        }
+
+        if (unlockTrigger != null)
+        {
+            unlockTrigger.SetActive(!unlocked);
+        }
+    }
+
+    private void ApplyOfflineEulerProgress(long savedUnixTime)
+    {
+        long nowUnixTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+        float elapsedSeconds = Mathf.Max(0f, nowUnixTime - savedUnixTime);
+        if (elapsedSeconds <= 0f) return;
+
+        float effectivePowerUp = resourceManager.powerUpTimer > 0f ? resourceManager.powerUpMultiplier : 1f;
+
+        float cropRatePerSecond = effectivePowerUp * resourceManager.cropGrowthRate * resourceManager.happiness - resourceManager.houseUpkeepPerSecond;
+        float electricityRatePerSecond = Mathf.Floor(resourceManager.electricityGrowthRate * resourceManager.happiness);
+
+        float cropGain = cropRatePerSecond * elapsedSeconds;
+        float electricityGain = electricityRatePerSecond * elapsedSeconds;
+
+        resourceManager.cropCount = Mathf.Max(0f, resourceManager.cropCount + cropGain);
+        resourceManager.electricityCount = Mathf.Max(0f, resourceManager.electricityCount + electricityGain);
+        resourceManager.powerUpTimer = Mathf.Max(0f, resourceManager.powerUpTimer - elapsedSeconds);
+
+        if (elapsedSeconds > 0f)
+        {
+            if (wristDisplay != null)
+            {
+                wristDisplay.ShowWelcomeBack(elapsedSeconds, cropGain, electricityGain);
+            }
+            onWelcomeBack?.Invoke();
+        }
     }
 
     public void Save()
     {
-        string path = Path.Combine(Application.dataPath, fileName);
-
         if (debugMode)
-            Debug.Log("Path: " + path);
+            Debug.Log("Save path: " + SavePath);
 
-
-
-        using (FileStream fs = new FileStream(path, FileMode.Create))
+        using (FileStream fs = new FileStream(SavePath, FileMode.Create))
         {
             using (StreamWriter writer = new StreamWriter(fs))
             {
-                writer.Write(PrepJson()); 
-                //foreach(GameObject go in objectsToSerialize)
-                //{
-                    //string currentSerializedData = JsonUtility.ToJson(s);
-                  //  writer.WriteLine(convertObjectToJson(go));
-                //}
+                writer.Write(BuildJson());
             }
         }
     }
@@ -152,39 +210,27 @@ public class SaveLoad : MonoBehaviour {
     {
         if (debugMode)
             Debug.Log("Loading...");
-        
-        string path = Path.Combine(Application.dataPath, fileName);
-        using (FileStream fs = new FileStream(path, FileMode.Open))
+
+        if (!File.Exists(SavePath))
+        {
+            if (debugMode)
+                Debug.Log("SaveLoad: No save file found. Starting fresh.");
+            return;
+        }
+
+        using (FileStream fs = new FileStream(SavePath, FileMode.Open))
         {
             using (StreamReader reader = new StreamReader(fs))
             {
                 string loadedString = reader.ReadToEnd();
                 if (debugMode)
                     Debug.Log("Loaded: " + loadedString);
-                LoadJson(loadedString);
-                //bool hasFinished = false;
-                
-                //while (!hasFinished)
-                //{
-                    
-                    //Debug.Log("peek" + reader.Peek());
-                    //string currRead = reader.ReadLine();
-
-                    //serializable.Add(JsonUtility.FromJson<Serializable>(currRead));
-                    
-                    //if (reader.Peek() == -1)
-                    //{
-                    //    hasFinished = true;
-                    //}
-                //}
+                LoadFromJson(loadedString);
             }
         }
 
-        if (debugMode) {
-            // foreach(Serializable s in serializableList)
-            //{
-            //    Debug.Log(s.LogString());
-            //}
+        if (debugMode)
+        {
             Debug.Log("Loaded");
         }
     }

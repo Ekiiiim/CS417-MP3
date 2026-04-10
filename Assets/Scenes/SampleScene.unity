@@ -899,6 +899,9 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 2098542832}
   levelText: {fileID: 1388827734}
   upgradeText: {fileID: 958110360}
+  unlockableHouse: {fileID: 1815704796}
+  houseUnlocker: {fileID: 1115317921}
+  nextUnlockableHouse: {fileID: 26450760}
   isUnlocked: 0
 --- !u!114 &78944100
 MonoBehaviour:
@@ -6951,6 +6954,9 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 739673548}
   levelText: {fileID: 1697601725}
   upgradeText: {fileID: 339174331}
+  unlockableHouse: {fileID: 3823920803834258606}
+  houseUnlocker: {fileID: 7549592540861444519}
+  nextUnlockableHouse: {fileID: 2019866997}
   isUnlocked: 0
 --- !u!114 &747726373
 MonoBehaviour:
@@ -24220,6 +24226,9 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 2125296687}
   levelText: {fileID: 868022446}
   upgradeText: {fileID: 559474952}
+  unlockableHouse: {fileID: 640821486}
+  houseUnlocker: {fileID: 1484979806}
+  nextUnlockableHouse: {fileID: 1815704796}
   isUnlocked: 0
 --- !u!114 &1720956795
 MonoBehaviour:
@@ -26722,6 +26731,10 @@ MonoBehaviour:
   - {fileID: 2017405257}
   powerPlantList:
   - {fileID: 1818505060}
+  wristDisplay: {fileID: 1692448545}
+  onWelcomeBack:
+    m_PersistentCalls:
+      m_Calls: []
   autoSave: 1
   debugMode: 1
   fileName: SAVE.dat
@@ -26951,6 +26964,9 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 1683825666}
   levelText: {fileID: 1604050368}
   upgradeText: {fileID: 1021703257}
+  unlockableHouse: {fileID: 26450760}
+  houseUnlocker: {fileID: 1205534835}
+  nextUnlockableHouse: {fileID: 0}
   isUnlocked: 0
 --- !u!114 &2017405258
 MonoBehaviour:
@@ -27826,6 +27842,9 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 1000677051}
   levelText: {fileID: 1425789879}
   upgradeText: {fileID: 1294460777}
+  unlockableHouse: {fileID: 2019866997}
+  houseUnlocker: {fileID: 1581137959}
+  nextUnlockableHouse: {fileID: 640821486}
   isUnlocked: 0
 --- !u!114 &2113486149
 MonoBehaviour:
