@@ -10,6 +10,7 @@ public class PowerPlantManager : MonoBehaviour
 
     public GameObject unlockableWall;
     public GameObject canvas;
+    public GameObject portals;
 
     private float basePowerRate = 1f;
     private float multiplierPerUpgrade = 2f;
@@ -99,10 +100,11 @@ public class PowerPlantManager : MonoBehaviour
 
         if (isUnlocked)
         {
+            ActivatePowerPlant();
             unlockableWall.SetActive(false);
+            portals.SetActive(true);
             canvas.SetActive(true);
             upgradeTrigger.SetActive(true);
-            ActivatePowerPlant();
         }
     }
 }
