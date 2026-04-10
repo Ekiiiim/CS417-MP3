@@ -23690,6 +23690,8 @@ MonoBehaviour:
   HintText: {fileID: 1063328736}
   CityWall: {fileID: 476427103}
   toggleCanvasAction: {fileID: 1704327547}
+  clearSaveAction: {fileID: 1788091665}
+  saveLoad: {fileID: 0}
   targetScale: {x: 0.0005, y: 0.0005, z: 0.0005}
 --- !u!1 &1697601723
 GameObject:
@@ -24932,6 +24934,20 @@ MonoBehaviour:
   targetScale: {x: 0.001183492, y: 0.004570536, z: 0.1376062}
   stiffness: 150
   damping: 3
+--- !u!114 &1788091665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: LeftHand/SecondaryButton
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
+  m_ActionId: 1414e4ef-05d7-40b1-b759-aa2c2c9cee56
 --- !u!1001 &1796720189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25121,6 +25137,8 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 1268233133}
   levelText: {fileID: 1778708862}
   upgradeText: {fileID: 1558851576}
+  unlockableWall: {fileID: 476427103}
+  canvas: {fileID: 1729947221}
   isUnlocked: 0
 --- !u!4 &1818505061
 Transform:
@@ -26731,6 +26749,12 @@ MonoBehaviour:
   - {fileID: 2017405257}
   powerPlantList:
   - {fileID: 1818505060}
+  unlockableCoffeeShop: {fileID: 1244004147}
+  coffeeShopUnlockTrigger: {fileID: 921494810}
+  unlockableSuperMarket: {fileID: 903601629}
+  superMarketUnlockTrigger: {fileID: 1623611464}
+  unlockableStadium: {fileID: 1140524418}
+  stadiumUnlockTrigger: {fileID: 1758301830}
   wristDisplay: {fileID: 1692448545}
   onWelcomeBack:
     m_PersistentCalls:

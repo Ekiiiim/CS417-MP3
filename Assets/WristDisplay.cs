@@ -10,6 +10,8 @@ public class WristDisplay : MonoBehaviour
     public TextMeshProUGUI HintText;
     public GameObject CityWall;
     public InputActionReference toggleCanvasAction;
+    public InputActionReference clearSaveAction;
+    public SaveLoad saveLoad;
 
     public Vector3 targetScale = new Vector3(0.0005f, 0.0005f, 0.0005f);
 
@@ -18,6 +20,7 @@ public class WristDisplay : MonoBehaviour
     private Color goldColor = new Color(1f, 0.84f, 0f);
 
     private bool showTutorial = false;
+    private bool showingWelcomeBack = false;
 
     private bool trophyCrops1kUnlocked;
     private bool trophyCrops10kUnlocked;
@@ -28,6 +31,15 @@ public class WristDisplay : MonoBehaviour
     void Start()
     {
         toggleCanvasAction.action.performed += ToggleCanvasVisibility;
+        if (clearSaveAction != null)
+        {
+            clearSaveAction.action.performed += HandleClearSaveInput;
+        }
+
+        if (saveLoad == null)
+        {
+            saveLoad = FindFirstObjectByType<SaveLoad>();
+        }
 
         popInAnimator = GetComponent<SpringPopInAnimator>();
         if (popInAnimator == null)
@@ -43,6 +55,18 @@ public class WristDisplay : MonoBehaviour
     private void OnDestroy()
     {
         toggleCanvasAction.action.performed -= ToggleCanvasVisibility;
+        if (clearSaveAction != null)
+        {
+            clearSaveAction.action.performed -= HandleClearSaveInput;
+        }
+    }
+
+    private void HandleClearSaveInput(InputAction.CallbackContext context)
+    {
+        if (!showTutorial || !showingWelcomeBack) return;
+        if (saveLoad == null) return;
+
+        saveLoad.ClearSavedData();
     }
 
     private void ToggleCanvasVisibility(InputAction.CallbackContext context)
@@ -61,6 +85,7 @@ public class WristDisplay : MonoBehaviour
     private void ResetToStatusBoard()
     {
         showTutorial = false;
+        showingWelcomeBack = false;
         InfoText.fontSize = 16f;
         TitleText.text = "Status Board";
         HintText.text = "Press X to close/open";
@@ -105,6 +130,7 @@ public class WristDisplay : MonoBehaviour
     private void ShowAchievement(string trophyTitle, string trophyDescription, Color flashColor)
     {
         showTutorial = true;
+        showingWelcomeBack = false;
         TitleText.text = $"{trophyTitle}";
         InfoText.fontSize = 17f;
         InfoText.text = trophyDescription;
@@ -148,6 +174,7 @@ public class WristDisplay : MonoBehaviour
     public void ShowHouseTutorial()
     {
         showTutorial = true;
+        showingWelcomeBack = false;
         TitleText.text = "Tutorial: Houses";
         InfoText.text = "House residents help you collect crops, but houses require upkeep!\n\nUpgrade houses to exponentially increase residents' efficiency.";
         HintText.text = "Press X to dismiss";
@@ -159,6 +186,7 @@ public class WristDisplay : MonoBehaviour
     public void ShowCityTutorial()
     {
         showTutorial = true;
+        showingWelcomeBack = false;
         TitleText.text = "Tutorial: City";
         InfoText.fontSize = 12f;
         InfoText.text = "Welcome to the city! Now you can access the power plant. It generates electricity, which can be used to build facilities that boost your residents' happiness.\n\nThe happiness index is multiplied to the generation rates of all resources.";
@@ -171,6 +199,7 @@ public class WristDisplay : MonoBehaviour
     public void ShowWelcomeBack(float awaySeconds, float cropGain, float electricityGain)
     {
         showTutorial = true;
+        showingWelcomeBack = true;
         TitleText.text = "Welcome Back!";
         InfoText.fontSize = 15f;
 
@@ -184,7 +213,7 @@ public class WristDisplay : MonoBehaviour
         }
 
         InfoText.text = $"{awayText}\n\n{gainsText}";
-        HintText.text = "Press X to dismiss";
+        HintText.text = clearSaveAction != null ? "Press X to dismiss, or\nPress Y to start fresh" : "Press X to dismiss";
 
         Color welcomeColor = new Color(0.12f, 0.57f, 0.95f);
         TitleText.color = welcomeColor;

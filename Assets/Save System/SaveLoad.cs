@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class SaveData
@@ -80,6 +81,7 @@ public class SaveLoad : MonoBehaviour
     public string fileName = "Sample.dat";
 
     private string SavePath => Path.Combine(Application.persistentDataPath, fileName);
+    private bool skipAutoSave;
 
     private void Start()
     {
@@ -91,7 +93,7 @@ public class SaveLoad : MonoBehaviour
 
     private void OnDisable()
     {
-        if (autoSave)
+        if (autoSave && !skipAutoSave)
         {
             Save();
         }
@@ -99,7 +101,7 @@ public class SaveLoad : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        if (autoSave)
+        if (autoSave && !skipAutoSave)
         {
             Save();
         }
@@ -194,6 +196,8 @@ public class SaveLoad : MonoBehaviour
 
     public void Save()
     {
+        skipAutoSave = false;
+
         if (debugMode)
             Debug.Log("Save path: " + SavePath);
 
@@ -233,5 +237,26 @@ public class SaveLoad : MonoBehaviour
         {
             Debug.Log("Loaded");
         }
+    }
+
+    public void ClearSavedData()
+    {
+        if (File.Exists(SavePath))
+        {
+            File.Delete(SavePath);
+            if (debugMode)
+            {
+                Debug.Log("SaveLoad: Save data cleared.");
+            }
+        }
+        else if (debugMode)
+        {
+            Debug.Log("SaveLoad: No save file to clear.");
+        }
+
+        skipAutoSave = true;
+
+        Scene activeScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(activeScene.buildIndex);
     }
 }
