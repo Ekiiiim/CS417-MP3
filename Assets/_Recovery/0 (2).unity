@@ -899,9 +899,6 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 2098542832}
   levelText: {fileID: 1388827734}
   upgradeText: {fileID: 958110360}
-  unlockableHouse: {fileID: 1815704796}
-  houseUnlocker: {fileID: 1115317921}
-  nextUnlockableHouse: {fileID: 26450760}
   isUnlocked: 0
 --- !u!114 &78944100
 MonoBehaviour:
@@ -1738,11 +1735,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dca1204e7e935d408728950a2ad997e, type: 3}
---- !u!64 &232398578 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 4787137234555054209, guid: 5dca1204e7e935d408728950a2ad997e, type: 3}
-  m_PrefabInstance: {fileID: 232398577}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &237347009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6959,9 +6951,6 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 739673548}
   levelText: {fileID: 1697601725}
   upgradeText: {fileID: 339174331}
-  unlockableHouse: {fileID: 3823920803834258606}
-  houseUnlocker: {fileID: 7549592540861444519}
-  nextUnlockableHouse: {fileID: 2019866997}
   isUnlocked: 0
 --- !u!114 &747726373
 MonoBehaviour:
@@ -23134,6 +23123,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6045110163862441004, guid: fe3b2a494e25ed94fb3ba66807a29c88, type: 3}
   m_PrefabInstance: {fileID: 1657811128}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &1662974426 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 414553647495803647, guid: 4f32dfddb033d3e40b5841bc53cc1689, type: 3}
+  m_PrefabInstance: {fileID: 1901780848}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1674494324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23762,8 +23756,6 @@ MonoBehaviour:
   HintText: {fileID: 1063328736}
   CityWall: {fileID: 476427103}
   toggleCanvasAction: {fileID: 1704327547}
-  clearSaveAction: {fileID: 1788091665}
-  saveLoad: {fileID: 0}
   targetScale: {x: 0.0005, y: 0.0005, z: 0.0005}
 --- !u!1 &1697601723
 GameObject:
@@ -24300,9 +24292,6 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 2125296687}
   levelText: {fileID: 868022446}
   upgradeText: {fileID: 559474952}
-  unlockableHouse: {fileID: 640821486}
-  houseUnlocker: {fileID: 1484979806}
-  nextUnlockableHouse: {fileID: 1815704796}
   isUnlocked: 0
 --- !u!114 &1720956795
 MonoBehaviour:
@@ -24688,6 +24677,11 @@ Transform:
   - {fileID: 1094490351}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &1768972632 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 4787137234555054209, guid: 5dca1204e7e935d408728950a2ad997e, type: 3}
+  m_PrefabInstance: {fileID: 232398577}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1777889489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25006,20 +25000,6 @@ MonoBehaviour:
   targetScale: {x: 0.001183492, y: 0.004570536, z: 0.1376062}
   stiffness: 150
   damping: 3
---- !u!114 &1788091665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: LeftHand/SecondaryButton
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
-  m_Asset: {fileID: -944628639613478452, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
-  m_ActionId: 1414e4ef-05d7-40b1-b759-aa2c2c9cee56
 --- !u!1001 &1796720189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25209,8 +25189,6 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 1268233133}
   levelText: {fileID: 1778708862}
   upgradeText: {fileID: 1558851576}
-  unlockableWall: {fileID: 476427103}
-  canvas: {fileID: 1729947221}
   isUnlocked: 0
 --- !u!4 &1818505061
 Transform:
@@ -25833,11 +25811,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f32dfddb033d3e40b5841bc53cc1689, type: 3}
---- !u!64 &1901780849 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 414553647495803647, guid: 4f32dfddb033d3e40b5841bc53cc1689, type: 3}
-  m_PrefabInstance: {fileID: 1901780848}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1903618208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26826,16 +26799,6 @@ MonoBehaviour:
   - {fileID: 2017405257}
   powerPlantList:
   - {fileID: 1818505060}
-  unlockableCoffeeShop: {fileID: 1244004147}
-  coffeeShopUnlockTrigger: {fileID: 921494810}
-  unlockableSuperMarket: {fileID: 903601629}
-  superMarketUnlockTrigger: {fileID: 1623611464}
-  unlockableStadium: {fileID: 1140524418}
-  stadiumUnlockTrigger: {fileID: 1758301830}
-  wristDisplay: {fileID: 1692448545}
-  onWelcomeBack:
-    m_PersistentCalls:
-      m_Calls: []
   autoSave: 1
   debugMode: 1
   fileName: SAVE.dat
@@ -27065,9 +27028,6 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 1683825666}
   levelText: {fileID: 1604050368}
   upgradeText: {fileID: 1021703257}
-  unlockableHouse: {fileID: 26450760}
-  houseUnlocker: {fileID: 1205534835}
-  nextUnlockableHouse: {fileID: 0}
   isUnlocked: 0
 --- !u!114 &2017405258
 MonoBehaviour:
@@ -27943,9 +27903,6 @@ MonoBehaviour:
   upgradeTrigger: {fileID: 1000677051}
   levelText: {fileID: 1425789879}
   upgradeText: {fileID: 1294460777}
-  unlockableHouse: {fileID: 2019866997}
-  houseUnlocker: {fileID: 1581137959}
-  nextUnlockableHouse: {fileID: 640821486}
   isUnlocked: 0
 --- !u!114 &2113486149
 MonoBehaviour:
@@ -27997,8 +27954,8 @@ MonoBehaviour:
   m_Colliders:
   - {fileID: 2113941085}
   - {fileID: 773190234}
-  - {fileID: 1901780849}
-  - {fileID: 232398578}
+  - {fileID: 1662974426}
+  - {fileID: 1768972632}
   m_InteractionLayers:
     m_Bits: 4294967295
   m_DistanceCalculationMode: 2
