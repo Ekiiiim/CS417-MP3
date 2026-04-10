@@ -105,3 +105,29 @@ build*
 .vscode/
 *ButDontShipItWithYourGame/
 *.zip
+Assets/cropIcon.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Ambulance.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Bus_1.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Bus_2.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Bus_3.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Car_1.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Car_2.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Car_3.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Container_1.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Container_2.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Container_3.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Pick up Truck_1.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Pick up Truck_2.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Pick up Truck_3.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Police Car.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_SUV_1.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_SUV_2.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_SUV_3.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Taxi.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Truck_1.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Truck_2.png
+Assets/SimplePoly City - Low Poly Assets/Textures/Vehicle_Truck_3.png
+Assets/Standard Assets/Effects/ToonShading/Textures/ToonLit.psd
+Assets/Standard Assets/Effects/ToonShading/Textures/UtilToonGradient.png
+*.png
+*.psd
