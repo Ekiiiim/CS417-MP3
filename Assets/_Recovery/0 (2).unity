@@ -1735,11 +1735,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dca1204e7e935d408728950a2ad997e, type: 3}
---- !u!64 &232398578 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 4787137234555054209, guid: 5dca1204e7e935d408728950a2ad997e, type: 3}
-  m_PrefabInstance: {fileID: 232398577}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &237347009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23128,6 +23123,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6045110163862441004, guid: fe3b2a494e25ed94fb3ba66807a29c88, type: 3}
   m_PrefabInstance: {fileID: 1657811128}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &1662974426 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 414553647495803647, guid: 4f32dfddb033d3e40b5841bc53cc1689, type: 3}
+  m_PrefabInstance: {fileID: 1901780848}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1674494324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24677,6 +24677,11 @@ Transform:
   - {fileID: 1094490351}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &1768972632 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 4787137234555054209, guid: 5dca1204e7e935d408728950a2ad997e, type: 3}
+  m_PrefabInstance: {fileID: 232398577}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1777889489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25806,11 +25811,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f32dfddb033d3e40b5841bc53cc1689, type: 3}
---- !u!64 &1901780849 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 414553647495803647, guid: 4f32dfddb033d3e40b5841bc53cc1689, type: 3}
-  m_PrefabInstance: {fileID: 1901780848}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1903618208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27954,8 +27954,8 @@ MonoBehaviour:
   m_Colliders:
   - {fileID: 2113941085}
   - {fileID: 773190234}
-  - {fileID: 1901780849}
-  - {fileID: 232398578}
+  - {fileID: 1662974426}
+  - {fileID: 1768972632}
   m_InteractionLayers:
     m_Bits: 4294967295
   m_DistanceCalculationMode: 2
